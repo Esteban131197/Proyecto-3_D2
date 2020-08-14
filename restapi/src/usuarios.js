@@ -41,12 +41,12 @@ router.delete('/:id', (req, res) => {
 // INSERT An usser
 
 router.post('/', (req, res) => {
-    const {id, name, repositorio, branch, files, ultimo_cambio} = req.body;
-    console.log(id, name, repositorio, branch, files, ultimo_cambio);
+    const {id, name, repositorio, file, ultimo_cambio} = req.body;
+    console.log(id, name, repositorio, file, ultimo_cambio);
     const query = `
-      CALL usuariosAddOrEdit(?, ?, ?, ?, ?, ?);
+      CALL usuariosAddOrEdit(?, ?, ?, ?, ?);
     `;
-    mysqlConnection.query(query, [id, name, repositorio, branch, files, ultimo_cambio], (err, rows, fields) => {
+    mysqlConnection.query(query, [id, name, repositorio, file, ultimo_cambio], (err, rows, fields) => {
       if(!err) {
         res.json({status: 'Usser Saved'});
       } else {
@@ -57,18 +57,17 @@ router.post('/', (req, res) => {
   });
   
  router.put('/:id', (req, res) => {
-    const {name, repositorio, branch, files, ultimo_cambio } = req.body;
+    const {name, repositorio, file, ultimo_cambio } = req.body;
     const { id } = req.params;
     const query = `
       SET @id = ?;
       SET @name = ?;
       SET @repositorio = ?;
-      SET @branch = ?;
-      SET @files = ?;
+      SET @file = ?;
       SET @ultimo_cambio = ?;
-      CALL usuariosAddOrEdit(@id, @name, @repositorio, @branch, @files, @ultimo_cambio);
+      CALL usuariosAddOrEdit(@id, @name, @repositorio, @file, @ultimo_cambio);
     `;
-    mysqlConnection.query(query, [id, name, repositorio, branch, files, ultimo_cambio], (err, rows, fields) => {
+    mysqlConnection.query(query, [id, name, repositorio, file, ultimo_cambio], (err, rows, fields) => {
       if(!err) {
         res.json({status: 'Usser Updated'});
       } else {
