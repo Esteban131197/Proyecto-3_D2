@@ -4,3 +4,4 @@ C:\Users\eamu1\source\repos\Got\Got\Debug\Got.exe.config
 C:\Users\eamu1\source\repos\Got\Got\Debug\Got.LoginForm.resources
 C:\Users\eamu1\source\repos\Got\Got\Debug\Got.vcxproj.GenerateResource.cache
 C:\Users\eamu1\source\repos\Got\Got\Debug\Got.vcxproj.CopyComplete
+C:\Users\eamu1\source\repos\Got\Got\Debug\Got.VerFormh.resources

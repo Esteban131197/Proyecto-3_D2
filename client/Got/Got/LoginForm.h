@@ -1,5 +1,5 @@
 #pragma once
-
+#include "VerFormh.h"
 namespace Got {
 
 	using namespace System;
@@ -48,6 +48,7 @@ namespace Got {
 	private: System::Windows::Forms::NumericUpDown^ IDStock;
 	private: System::Windows::Forms::Button^ AABoton;
 	private: System::Windows::Forms::PictureBox^ Imagen;
+	private: System::Windows::Forms::Button^ VerCommBoton;
 
 
 
@@ -87,6 +88,7 @@ namespace Got {
 			this->IDStock = (gcnew System::Windows::Forms::NumericUpDown());
 			this->AABoton = (gcnew System::Windows::Forms::Button());
 			this->Imagen = (gcnew System::Windows::Forms::PictureBox());
+			this->VerCommBoton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->IDStock))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Imagen))->BeginInit();
 			this->SuspendLayout();
@@ -185,11 +187,22 @@ namespace Got {
 			this->Imagen->TabIndex = 11;
 			this->Imagen->TabStop = false;
 			// 
+			// VerCommBoton
+			// 
+			this->VerCommBoton->Location = System::Drawing::Point(59, 258);
+			this->VerCommBoton->Name = L"VerCommBoton";
+			this->VerCommBoton->Size = System::Drawing::Size(484, 48);
+			this->VerCommBoton->TabIndex = 12;
+			this->VerCommBoton->Text = L"Ver Commits";
+			this->VerCommBoton->UseVisualStyleBackColor = true;
+			this->VerCommBoton->Click += gcnew System::EventHandler(this, &LoginForm::VerCommBoton_Click);
+			// 
 			// LoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(595, 244);
+			this->ClientSize = System::Drawing::Size(595, 335);
+			this->Controls->Add(this->VerCommBoton);
 			this->Controls->Add(this->Imagen);
 			this->Controls->Add(this->AABoton);
 			this->Controls->Add(this->IDStock);
@@ -216,6 +229,15 @@ namespace Got {
 		String^ connString = "Server=localhost;port=3306;database=got;uid=root;password=admin";
 
 		MySqlConnection^ conn = gcnew MySqlConnection(connString);
+
+		void clearFields() {
+			Imagen->ImageLocation = "";
+			NUBox->Text = "";
+			NRBox->Text = "";
+			DCBox->Text = "";
+			IDStock->Value = 0;
+
+		}
 
 	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
 
@@ -253,10 +275,14 @@ namespace Got {
 
 
 		String^ fileLocation = Imagen->ImageLocation;
-		FileStream^ fs = gcnew FileStream(fileLocation, FileMode::Open, FileAccess::Read);
-		BinaryReader^ br = gcnew BinaryReader(fs);
-		Archivo = br->ReadBytes(fs->Length);
+		try {
+			FileStream^ fs = gcnew FileStream(fileLocation, FileMode::Open, FileAccess::Read);
+			BinaryReader^ br = gcnew BinaryReader(fs);
+			Archivo = br->ReadBytes(fs->Length);
+		}
+		catch (Exception^ e) {
 
+		}
 
 
 
@@ -299,6 +325,7 @@ namespace Got {
 				cmd->ExecuteNonQuery();
 				MessageBox::Show("Commit ingresado Correctamente");
 				conn->Close();
+				clearFields();
 			}
 			catch (Exception^ e) {
 				MessageBox::Show("Error al insertar datos");
@@ -314,7 +341,7 @@ namespace Got {
 	private: System::Void AABoton_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		OpenFileDialog^ ofd = gcnew OpenFileDialog();
-		ofd->Filter = "TXT Files *.txt|*.txt|PY Files *.py|*.py|CS Files *.cs|*.cs|JS Files *.js|*.js|CPP Files *.cpp|*.cpp|All Files *.*|*.*";
+		ofd->Filter = "TXT Files *.txt|*.txt|PY Files *.py|*.py|CS Files *.cs|*.cs|JS Files *.js|*.js|CPP Files *.cpp|*.cpp|PNG Files *.png|*.png|All Files *.*|*.*";
 
 		if (ofd->ShowDialog() == Windows::Forms::DialogResult::OK); {
 			Imagen->ImageLocation = ofd->FileName;
@@ -325,7 +352,14 @@ namespace Got {
 
 
 	}
+	private: System::Void VerCommBoton_Click(System::Object^ sender, System::EventArgs^ e) {
+		VerFormh^ ptf = gcnew VerFormh();
+		ptf->Visible = true;
+		Hide();
+
+
+
+	}
 	};
 }
-
 

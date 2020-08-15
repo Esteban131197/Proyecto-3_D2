@@ -18,10 +18,16 @@
     <ClCompile Include="LoginForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="VerFormh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VerFormh.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
