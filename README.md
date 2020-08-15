@@ -64,6 +64,7 @@ Abrir Postman y inicialar con esta ruta "http://localhost:3000"
 Con todo lo anterior usted esta a punto de ejecutar la aplicacion, primeramente debe compilar el codigo de MYSQL, segundo el cliente abierto en Visual Studio, y tercero correr el siguinte comando en una terminal integrada de Visual Studio Code "npm run dev".
 
 En este punto usted como desarrollador o usuario tecnico, puede hacer consulta total de codigo, asi como modificaciones pertinentes al mismo.
+****
 
 
 ## Guia de uso de aplicacion cliente
