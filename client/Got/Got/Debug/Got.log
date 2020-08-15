@@ -1,0 +1,5 @@
+﻿  LoginForm.cpp
+C:\Users\eamu1\source\repos\Got\Got\LoginForm.h(203,21): warning C4101: 'e': unreferenced local variable
+C:\Users\eamu1\source\repos\Got\Got\LoginForm.h(257,22): warning C4101: 'e': unreferenced local variable
+  LoginForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  Got.vcxproj -> C:\Users\eamu1\source\repos\Got\Debug\Got.exe
