@@ -28,8 +28,9 @@ Si de su preferencia puede abrir cualquier motor de busqueda y en la direccion c
 Con todo lo anterior usted esta a punto de ejecutar la aplicacion, primeramente debe compilar el codigo de MYSQL, segundo el cliente abierto en Visual Studio, y tercero correr el siguinte comando en una terminal integrada de Visual Studio Code "npm run dev".
 
 En este punto usted ya puede realizar commits y agregar su codigo asi como usuarios pertinentes a la aplicacion **GOT**
+****
 
-**Guia de uso de aplicacion cliente**
+## Guia de uso de aplicacion cliente
 
 Una vez abierta la aplicacion cliente en el Visual Studio, debe buscar el boton "Local Windows Debugger", una vez presionado el boton, aparece un mensaje indicando si la conexion con el servidor fue "Exitosa", una vez que sea exitosa la conexión con el servidor, aparecera una interfaz de tipo "Login" para poder realizar un "Commit" en esta interfaz debe ingresar sus datos como desarrollador y realizar el  commit.
 En la misma interfza aparece un boton llamado "Ver Commits" una vez presionado este boton, aparecera un ventana donde se muestra de maner local la tabla de la base de datos con todos lso commits y actualizaciones sobre los mismos.
@@ -64,7 +65,7 @@ Con todo lo anterior usted esta a punto de ejecutar la aplicacion, primeramente 
 En este punto usted como desarrollador o usuario tecnico, puede hacer consulta total de codigo, asi como modificaciones pertinentes al mismo.
 
 
-**Guia de uso de aplicacion cliente**
+## Guia de uso de aplicacion cliente**
 
 Una vez abierta la aplicacion cliente en el Visual Studio, debe buscar el boton "Local Windows Debugger", una vez presionado el boton, aparece un mensaje indicando si la conexion con el servidor fue "Exitosa", una vez que sea exitosa la conexión con el servidor, aparecera una interfaz de tipo "Login" para poder realizar un "Commit" en esta interfaz debe ingresar sus datos como desarrollador y realizar el  commit.
 En la misma interfza aparece un boton llamado "Ver Commits" una vez presionado este boton, aparecera un ventana donde se muestra de maner local la tabla de la base de datos con todos lso commits y actualizaciones sobre los mismos.
